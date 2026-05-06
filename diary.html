@@ -1,12 +1,264 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>My College Diary</title>
+
 <link rel="stylesheet" href="bat.css">
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+color:#222;
+line-height:1.6;
+}
+
+/* HEADER */
+header{
+background:rgba(15,23,42,0.95);
+backdrop-filter:blur(10px);
+padding:18px 8%;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+header h1{
+color:white;
+text-align:center;
+margin-bottom:12px;
+font-size:34px;
+}
+
+nav{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:10px 18px;
+border-radius:30px;
+transition:0.3s;
+font-size:15px;
+}
+
+nav a:hover{
+background:#3b82f6;
+transform:translateY(-2px);
+}
+
+/* MAIN DIARY */
+.diary-container{
+max-width:1200px;
+margin:auto;
+padding:80px 8%;
+}
+
+.diary-container h2{
+font-size:48px;
+text-align:center;
+margin-bottom:20px;
+color:#0f172a;
+}
+
+.diary-container > p{
+text-align:center;
+font-size:18px;
+color:#555;
+margin-bottom:60px;
+}
+
+/* TIMELINE */
+.diary-entry{
+background:white;
+padding:25px;
+border-radius:30px;
+margin-bottom:40px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+display:flex;
+gap:30px;
+align-items:center;
+transition:0.4s;
+overflow:hidden;
+animation:fadeUp 1s ease;
+}
+
+.diary-entry:hover{
+transform:translateY(-8px);
+}
+
+/* IMAGE */
+.diary-entry img{
+width:320px;
+height:220px;
+object-fit:cover;
+border-radius:20px;
+transition:0.4s;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+cursor:pointer;
+}
+
+.diary-entry img:hover{
+transform:scale(1.04);
+}
+
+/* TEXT */
+.entry-text{
+flex:1;
+}
+
+.entry-text h3{
+font-size:30px;
+margin-bottom:15px;
+color:#1e3a8a;
+}
+
+.entry-text p{
+font-size:17px;
+color:#555;
+line-height:1.8;
+}
+
+/* FOOTER */
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:40px;
+font-size:15px;
+}
+
+/* POPUP */
+.popup{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.8);
+backdrop-filter:blur(8px);
+justify-content:center;
+align-items:center;
+padding:20px;
+z-index:999;
+}
+
+.popup-content{
+background:rgba(255,255,255,0.15);
+backdrop-filter:blur(18px);
+padding:25px;
+border-radius:30px;
+width:90%;
+max-width:800px;
+text-align:center;
+position:relative;
+animation:popupShow 0.4s ease;
+color:white;
+border:1px solid rgba(255,255,255,0.2);
+}
+
+.popup-content img{
+width:100%;
+max-height:500px;
+object-fit:contain;
+border-radius:20px;
+margin-bottom:20px;
+}
+
+.popup-content h2{
+font-size:32px;
+margin-bottom:10px;
+}
+
+.popup-content p{
+font-size:17px;
+line-height:1.8;
+}
+
+.close{
+position:absolute;
+top:15px;
+right:20px;
+font-size:38px;
+cursor:pointer;
+transition:0.3s;
+}
+
+.close:hover{
+transform:rotate(90deg);
+color:#93c5fd;
+}
+
+/* ANIMATION */
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes popupShow{
+from{
+opacity:0;
+transform:scale(0.8);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* MOBILE */
+@media(max-width:900px){
+
+.diary-entry{
+flex-direction:column;
+text-align:center;
+}
+
+.diary-entry img{
+width:100%;
+height:240px;
+}
+
+.diary-container h2{
+font-size:38px;
+}
+}
+
+</style>
+
 </head>
+
 <body>
 
 <header>
+
 <h1>Diary Entries</h1>
+
 <nav>
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
@@ -14,94 +266,189 @@
 <a href="gallery.html">Gallery</a>
 <a href="contact.html">Contact</a>
 </nav>
+
 </header>
 
+<!-- DIARY -->
 <section class="diary-container">
 
 <h2>My College Journey 📝</h2>
-<p>From my first day in college to today, here’s a timeline of my experiences as an IT student.</p>
 
-<!-- 1st Year, 1st Semester -->
+<p>
+From my first day in college to today,
+here’s a timeline of my experiences as an IT student.
+</p>
+
+<!-- ENTRY -->
 <div class="diary-entry">
+
+<img src="1styear/1sem/received_516027511060958.jpeg"
+onclick="openPopup(
+'1styear/1sem/received_516027511060958.jpeg',
+'First Day of College',
+'My first day at college. Excited and nervous while meeting new classmates.'
+)">
+
+<div class="entry-text">
 <h3>📅 First Day of College</h3>
-<p>My first day at college. Excited and nervous! Orientation and meeting new classmates.</p>
-<img src="1styear/1sem/received_516027511060958.jpeg" alt="First Day of College">
+<p>
+My first day at college. Excited and nervous!
+Orientation and meeting new classmates.
+</p>
 </div>
 
+</div>
+
+<!-- ENTRY -->
 <div class="diary-entry">
+
+<img src="1styear/1sem/20240822_100106.jpg"
+onclick="openPopup(
+'1styear/1sem/20240822_100106.jpg',
+'First Programming Class',
+'Learned the basics of algorithms and coding logic.'
+)">
+
+<div class="entry-text">
 <h3>📅 First Programming Class</h3>
-<p>Had my first programming class. Learned the basics of algorithms and coding logic.</p>
-<img src="1styear/1sem/20240822_100106.jpg" alt="Programming Class">
+<p>
+Had my first programming class.
+Learned the basics of algorithms and coding logic.
+</p>
 </div>
 
-<div class="diary-entry">
-<h3>📅 IT Week </h3>
-<p>Worked with classmates on our boot for IT week event. </p>
-<img src="1styear/1sem/received_1099217508589122.jpeg" alt="IT Week">
 </div>
 
+<!-- ENTRY -->
 <div class="diary-entry">
-<h3>📅 Fun Run</h3>
-<p>The fun run was exciting and energetic! I learned the importance of pacing myself and staying motivated throughout the course.</p>
-<img src="1styear/1sem/received_1250496509566457.jpeg" alt="Fun run">
+
+<img src="1styear/1sem/received_1099217508589122.jpeg"
+onclick="openPopup(
+'1styear/1sem/received_1099217508589122.jpeg',
+'IT Week',
+'Worked with classmates on our booth during IT Week.'
+)">
+
+<div class="entry-text">
+<h3>📅 IT Week</h3>
+<p>
+Worked with classmates on our booth for the IT Week event.
+</p>
 </div>
 
-<div class="diary-entry">
-<h3>📅 End of 1st Year, 1st Sem</h3>
-<p><p>Finished my first semester and had an amazing time at the year-end party! The fun, games, and celebration made the event truly unforgettable.</p></p>
-<img src="1styear/1sem/received_1114010169856260.jpeg" alt="End of Semester 1">
 </div>
 
-<!-- 1st Year, 2nd Semester -->
+<!-- ENTRY -->
 <div class="diary-entry">
-<h3>📅 Start of 1st Year, 2nd Sem</h3>
-<p>Started the second semester. Focused on programming and learning new IT subjects.</p>
-<img src="1styear/2sem/20250205_123128.jpg" alt="Start of Semester 2">
-</div>
 
-<div class="diary-entry">
+<img src="1styear/2sem/20250311_090821.jpg"
+onclick="openPopup(
+'1styear/2sem/20250311_090821.jpg',
+'Sports Fest',
+'Learned teamwork and motivation during the sports fest.'
+)">
+
+<div class="entry-text">
 <h3>📅 Sports Fest</h3>
-<p>Participated in the sport fest. Learned teamwork, strategy, and the importance of staying active and motivated throughout the events.</p>
-<img src="1styear/2sem/20250311_090821.jpg" alt="Sport Fest">
+<p>
+Participated in the sports fest and learned teamwork,
+strategy, and motivation.
+</p>
 </div>
 
-<div class="diary-entry">
-<h3>📅 End of 1st Year, 2nd Sem</h3>
-<p>Completed my first year of college. Reflected on my growth and set goals for the second year.</p>
-<img src="1styear/2sem/2025_0523_15225200.jpg" alt="End of Year 1">
 </div>
 
-<!-- 2nd Year, 1st Semester -->
+<!-- ENTRY -->
 <div class="diary-entry">
-<h3>📅 Start of 2nd Year, 1st Sem</h3>
-<p>Second year started. More challenging subjects but I felt more confident in my IT skills.</p>
-<img src="2year 1sem/received_1164817208815700.jpeg" alt="Start of 2nd Year">
-</div>
 
-<div class="diary-entry">
+<img src="2year 1sem/20250809_113912_293.jpg"
+onclick="openPopup(
+'2year 1sem/20250809_113912_293.jpg',
+'End of 2nd Year',
+'Proud of my improvements and ready for the next semester.'
+)">
+
+<div class="entry-text">
 <h3>📅 End of 2nd Year, 1st Sem</h3>
-<p>Finished the first semester of second year. Proud of improvements and ready for next semester.</p>
-<img src="2year 1sem/20250809_113912_293.jpg" alt="End of Semester 2">
+<p>
+Finished the first semester of second year.
+Proud of improvements and ready for next semester.
+</p>
 </div>
 
-<!-- 2nd Year, 2nd Semester -->
-<div class="diary-entry">
-<h3>📅 Start of 2nd Year, 2nd Sem</h3>
-<p>Second semester started. Focused on advanced programming, database management, and IT projects.</p>
-<img src="2year 1sem/converted_image.jpg" alt="Start 2nd Year 2nd Semester">
 </div>
 
+<!-- ENTRY -->
 <div class="diary-entry">
+
+<img src="2year 1sem/642555330_1680117919646229_4735342821423741561_n.jpg"
+onclick="openPopup(
+'2year 1sem/642555330_1680117919646229_4735342821423741561_n.jpg',
+'Current Week',
+'Currently working on projects and preparing for exams.'
+)">
+
+<div class="entry-text">
 <h3>📅 Current Week</h3>
-<p>Currently working on team projects, completing assignments, and preparing for upcoming exams.</p>
-<img src="2year 1sem/642555330_1680117919646229_4735342821423741561_n.jpg" alt="Current Week Projects">
+<p>
+Currently working on team projects,
+completing assignments,
+and preparing for upcoming exams.
+</p>
+</div>
+
 </div>
 
 </section>
 
+<!-- POPUP -->
+<div class="popup" id="popup">
+
+<div class="popup-content">
+
+<span class="close" onclick="closePopup()">&times;</span>
+
+<img id="popup-img" src="">
+
+<h2 id="popup-title"></h2>
+
+<p id="popup-description"></p>
+
+</div>
+
+</div>
+
 <footer>
-<p>&copy; 2026 My College Diary | Created by an IT Student</p>
+<p>&copy; 2026 My College Diary | Created by Rodriguez, Lilzyren</p>
 </footer>
+
+<script>
+
+function openPopup(imageSrc,title,description){
+
+document.getElementById("popup").style.display = "flex";
+
+document.getElementById("popup-img").src = imageSrc;
+
+document.getElementById("popup-title").innerText = title;
+
+document.getElementById("popup-description").innerText = description;
+}
+
+function closePopup(){
+document.getElementById("popup").style.display = "none";
+}
+
+window.onclick = function(event){
+
+let popup = document.getElementById("popup");
+
+if(event.target == popup){
+popup.style.display = "none";
+}
+}
+
+</script>
 
 </body>
 </html>
