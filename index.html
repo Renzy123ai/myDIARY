@@ -1,67 +1,383 @@
 <!DOCTYPE html>
+<html lang="en">
+
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>My College Diary</title>
+
 <link rel="stylesheet" href="bat.css">
+
+<style>
+
+/* RESET */
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial,sans-serif;
+background:#f4f7fb;
+color:#222;
+line-height:1.6;
+}
+
+/* HEADER */
+header{
+background:rgba(15,23,42,0.95);
+backdrop-filter:blur(10px);
+padding:18px 8%;
+position:sticky;
+top:0;
+z-index:1000;
+box-shadow:0 4px 12px rgba(0,0,0,0.1);
+}
+
+header h1{
+color:white;
+text-align:center;
+margin-bottom:12px;
+font-size:32px;
+}
+
+nav{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+padding:10px 18px;
+border-radius:30px;
+transition:0.3s;
+font-size:15px;
+}
+
+nav a:hover{
+background:#3b82f6;
+transform:translateY(-2px);
+}
+
+/* HERO */
+.hero{
+min-height:90vh;
+display:flex;
+justify-content:center;
+align-items:center;
+gap:60px;
+padding:60px 8%;
+background:linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+color:white;
+flex-wrap:wrap;
+overflow:hidden;
+}
+
+.hero-text{
+max-width:550px;
+animation:fadeUp 1s ease;
+}
+
+.hero-text h2{
+font-size:58px;
+margin-bottom:20px;
+line-height:1.2;
+}
+
+.hero-text p{
+font-size:18px;
+margin-bottom:30px;
+opacity:0.9;
+}
+
+/* BUTTON */
+.btn{
+display:inline-block;
+padding:14px 28px;
+background:white;
+color:#1e3a8a;
+text-decoration:none;
+border-radius:50px;
+font-weight:bold;
+transition:0.3s;
+box-shadow:0 5px 15px rgba(0,0,0,0.2);
+}
+
+.btn:hover{
+transform:translateY(-3px) scale(1.03);
+background:#dbeafe;
+}
+
+/* HERO IMAGE */
+.hero-image{
+animation:fadeIn 1.2s ease;
+}
+
+.hero-image img{
+width:340px;
+height:340px;
+object-fit:cover;
+border-radius:30px;
+border:5px solid rgba(255,255,255,0.2);
+box-shadow:0 10px 30px rgba(0,0,0,0.3);
+transition:0.4s;
+}
+
+.hero-image img:hover{
+transform:scale(1.03) rotate(1deg);
+}
+
+/* SECTIONS */
+.about-preview,
+.featured,
+.info{
+padding:90px 8%;
+text-align:center;
+}
+
+.about-preview h2,
+.featured h2,
+.info h2{
+font-size:40px;
+margin-bottom:20px;
+color:#0f172a;
+}
+
+.about-preview p{
+max-width:800px;
+margin:auto;
+font-size:18px;
+color:#555;
+margin-bottom:30px;
+}
+
+/* CARD */
+.card{
+background:white;
+padding:35px;
+max-width:750px;
+margin:auto;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+}
+
+.card h3{
+font-size:28px;
+margin-bottom:15px;
+color:#1e3a8a;
+}
+
+.card p{
+color:#555;
+margin-bottom:25px;
+}
+
+/* INFO BOXES */
+.info-container{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:40px;
+}
+
+.info-box{
+background:white;
+width:280px;
+padding:35px 25px;
+border-radius:25px;
+box-shadow:0 10px 25px rgba(0,0,0,0.08);
+transition:0.3s;
+}
+
+.info-box:hover{
+transform:translateY(-8px);
+}
+
+.info-box h3{
+font-size:24px;
+margin-bottom:15px;
+color:#2563eb;
+}
+
+.info-box p{
+color:#555;
+}
+
+/* FOOTER */
+footer{
+background:#0f172a;
+color:white;
+text-align:center;
+padding:25px;
+margin-top:40px;
+font-size:15px;
+}
+
+/* ANIMATIONS */
+@keyframes fadeUp{
+from{
+opacity:0;
+transform:translateY(40px);
+}
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+@keyframes fadeIn{
+from{
+opacity:0;
+transform:scale(0.9);
+}
+to{
+opacity:1;
+transform:scale(1);
+}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+
+.hero{
+text-align:center;
+padding-top:100px;
+}
+
+.hero-text h2{
+font-size:40px;
+}
+
+.hero-image img{
+width:260px;
+height:260px;
+}
+
+.about-preview h2,
+.featured h2,
+.info h2{
+font-size:32px;
+}
+}
+
+</style>
+
 </head>
+
 <body>
 
 <header>
+
 <h1>My College Diary</h1>
+
 <nav>
-<a href="index.html">Home</a>
+<a href="idex.html">Home</a>
 <a href="about.html">About</a>
 <a href="diary.html">Diary</a>
 <a href="gallery.html">Gallery</a>
 <a href="contact.html">Contact</a>
 </nav>
+
 </header>
 
-<!-- HERO SECTION -->
+<!-- HERO -->
 <section class="hero">
+
+<div class="hero-text">
+
 <h2>Welcome to My Journey 🚀</h2>
-<p>Follow my experiences, struggles, projects, and achievements as an IT student.</p>
+
+<p>
+Follow my experiences, struggles, projects, and achievements
+as an IT student exploring the world of technology and creativity.
+</p>
+
 <a href="diary.html" class="btn">Read My Diary</a>
-</section>
 
-<!-- ABOUT PREVIEW -->
-<section class="about-preview">
-<h2>About Me</h2>
-<p>Hello! I'm an IT student passionate about programming, web development, and technology. 
-This website is where I document my college life and growth.</p>
-<a href="about.html" class="btn">Learn More</a>
-</section>
-
-<!-- FEATURED DIARY -->
-<section class="featured">
-<h2>Latest Entry</h2>
-<div class="card">
-<h3>First Year in IT</h3>
-<p>Starting college was both exciting and challenging. I learned the basics of HTML, CSS, and programming logic...</p>
-<a href="diary.html" class="btn">Read More</a>
 </div>
+
+<div class="hero-image">
+<img src="converted_image.jpeg" alt="My Picture">
+</div>
+
 </section>
 
-<!-- QUICK INFO SECTION -->
+<!-- ABOUT -->
+<section class="about-preview">
+
+<h2>About Me</h2>
+
+<p>
+Hello! I'm an IT student passionate about programming,
+web development, and technology.
+This website is where I document my college life,
+experiences, and personal growth.
+</p>
+
+<a href="about.html" class="btn">Learn More</a>
+
+</section>
+
+<!-- FEATURED -->
+<section class="featured">
+
+<h2>Latest Entry</h2>
+
+<div class="card">
+
+<h3>First Year in IT</h3>
+
+<p>
+Starting college was both exciting and challenging.
+I learned the basics of HTML, CSS,
+and programming logic while adapting to student life.
+</p>
+
+<a href="diary.html" class="btn">Read More</a>
+
+</div>
+
+</section>
+
+<!-- INFO -->
 <section class="info">
+
 <h2>What You'll Find Here</h2>
+
 <div class="info-container">
+
 <div class="info-box">
 <h3>💻 Projects</h3>
-<p>My coding projects and activities.</p>
+<p>My coding projects, activities, and web development works.</p>
 </div>
+
 <div class="info-box">
 <h3>📚 School Life</h3>
-<p>Experiences inside and outside the classroom.</p>
+<p>Experiences, struggles, and memorable moments in college.</p>
 </div>
+
 <div class="info-box">
 <h3>🌟 Achievements</h3>
-<p>Milestones and accomplishments in my journey.</p>
+<p>Milestones and accomplishments throughout my journey.</p>
 </div>
+
 </div>
+
 </section>
 
 <footer>
-<p>&copy; 2026 My College Diary | Created by Rodriguez,Lilzyren</p>
+<p>&copy; 2026 My College Diary | Created by Rodriguez, Lilzyren</p>
 </footer>
 
 </body>
