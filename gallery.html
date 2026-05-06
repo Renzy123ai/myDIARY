@@ -5,61 +5,128 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gallery</title>
 <link rel="stylesheet" href="bat.css">
+
 <style>
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+body{
+  margin:0;
+  font-family:Arial,sans-serif;
+  background-color:#f5f5f5;
 }
 
-header {
-  background-color: #333;
-  color: white;
-  padding: 15px;
-  text-align: center;
+header{
+  background-color:#333;
+  color:white;
+  padding:15px;
+  text-align:center;
 }
 
-nav {
-  margin-top: 10px;
+nav{
+  margin-top:10px;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  padding: 8px 12px;
-  border-radius: 5px;
+nav a{
+  color:white;
+  text-decoration:none;
+  margin:0 10px;
+  padding:8px 12px;
+  border-radius:5px;
 }
 
-nav a:hover {
-  background-color: #555;
+nav a:hover{
+  background-color:#555;
 }
 
-section {
-  padding: 20px;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 15px;
+section{
+  padding:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+  gap:15px;
 }
 
-section img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-  transition: transform 0.3s ease;
+.gallery-item{
+  position:relative;
+  cursor:pointer;
 }
 
-section img:hover {
-  transform: scale(1.05);
+.gallery-item img{
+  width:100%;
+  height:200px;
+  object-fit:cover;
+  border-radius:10px;
+  box-shadow:0 4px 8px rgba(0,0,0,0.2);
+  transition:transform 0.3s ease;
+}
+
+.gallery-item img:hover{
+  transform:scale(1.05);
+}
+
+/* Popup Background */
+.popup{
+  display:none;
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.8);
+  justify-content:center;
+  align-items:center;
+  z-index:999;
+  padding:20px;
+}
+
+/* Popup Box */
+.popup-content{
+  background:white;
+  padding:20px;
+  border-radius:15px;
+  max-width:700px;
+  width:90%;
+  text-align:center;
+  position:relative;
+}
+
+.popup-content img{
+  width:100%;
+  max-height:400px;
+  object-fit:contain;
+  border-radius:10px;
+}
+
+.popup-content h2{
+  margin-top:15px;
+}
+
+.popup-content p{
+  color:#444;
+}
+
+/* Close Button */
+.close{
+  position:absolute;
+  top:10px;
+  right:15px;
+  font-size:30px;
+  cursor:pointer;
+  color:black;
+}
+
+footer{
+  text-align:center;
+  padding:15px;
+  background:#333;
+  color:white;
+  margin-top:20px;
 }
 </style>
 </head>
+
 <body>
 
 <header>
 <h1>Gallery</h1>
+
 <nav>
 <a href="index.html">Home</a>
 <a href="about.html">About</a>
@@ -70,50 +137,145 @@ section img:hover {
 </header>
 
 <section>
-<a href="1styear/1sem/received_516027511060958.jpeg" target="_blank">
-  <img src="1styear/1sem/received_516027511060958.jpeg" alt="Gallery Image 1">
-</a>
 
-<a href="1styear/1sem/received_1099217508589122.jpeg" target="_blank">
-  <img src="1styear/1sem/received_1099217508589122.jpeg" alt="Gallery Image 2">
-</a>
+<div class="gallery-item"
+onclick="openPopup(
+'1styear/1sem/received_516027511060958.jpeg',
+'Gallery Image 1',
+'This photo was taken during my first year first semester.'
+)">
+<img src="1styear/1sem/received_516027511060958.jpeg" alt="Gallery Image 1">
+</div>
 
-<a href="1styear/1sem/received_1114010169856260.jpeg" target="_blank">
-  <img src="1styear/1sem/received_1114010169856260.jpeg" alt="Gallery Image 3">
-</a>
+<div class="gallery-item"
+onclick="openPopup(
+'1styear/1sem/received_1099217508589122.jpeg',
+'Gallery Image 2',
+'Memories from school activities and moments with classmates.'
+)">
+<img src="1styear/1sem/received_1099217508589122.jpeg" alt="Gallery Image 2">
+</div>
 
-<a href="1styear/1sem/received_1250496509566457.jpeg" target="_blank">
-  <img src="1styear/1sem/received_1250496509566457.jpeg" alt="Gallery Image 4">
-</a>
+<div class="gallery-item"
+onclick="openPopup(
+'1styear/1sem/received_1114010169856260.jpeg',
+'Gallery Image 3',
+'Another important memory from my college life.'
+)">
+<img src="1styear/1sem/received_1114010169856260.jpeg" alt="Gallery Image 3">
+</div>
 
-<a href="1styear/2sem/2025_0523_15225200.jpg" target="_blank">
-  <img src="1styear/2sem/2025_0523_15225200.jpg" alt="Gallery Image 5">
-</a>
+<div class="gallery-item"
+onclick="openPopup(
+'1styear/1sem/received_1250496509566457.jpeg',
+'Gallery Image 4',
+'Fun and unforgettable experiences during the semester.'
+)">
+<img src="1styear/1sem/received_1250496509566457.jpeg" alt="Gallery Image 4">
+</div>
 
-<a href="2year 1sem/received_777101624973512.jpeg" target="_blank">
-  <img src="2year 1sem/received_777101624973512.jpeg" alt="Gallery Image 6">
-</a>
+<div class="gallery-item"
+onclick="openPopup(
+'1styear/2sem/2025_0523_15225200.jpg',
+'Gallery Image 5',
+'Captured during second semester activities.'
+)">
+<img src="1styear/2sem/2025_0523_15225200.jpg" alt="Gallery Image 5">
+</div>
 
-<a href="2year 1sem/642555330_1680117919646229_4735342821423741561_n.jpg" target="_blank">
-  <img src="2year 1sem/642555330_1680117919646229_4735342821423741561_n.jpg" alt="Gallery Image 7">
-</a>
+<div class="gallery-item"
+onclick="openPopup(
+'2year 1sem/received_777101624973512.jpeg',
+'Gallery Image 6',
+'My second year college memories.'
+)">
+<img src="2year 1sem/received_777101624973512.jpeg" alt="Gallery Image 6">
+</div>
 
-<a href="2year 1sem/converted_image.jpg" target="_blank">
-  <img src="2year 1sem/converted_image.jpg" alt="Gallery Image 8">
-</a>
+<div class="gallery-item"
+onclick="openPopup(
+'2year 1sem/642555330_1680117919646229_4735342821423741561_n.jpg',
+'Gallery Image 7',
+'Special moments captured with friends.'
+)">
+<img src="2year 1sem/642555330_1680117919646229_4735342821423741561_n.jpg" alt="Gallery Image 7">
+</div>
 
-<a href="2year 1sem/20250809_113912_293.jpg" target="_blank">
-  <img src="2year 1sem/20250809_113912_293.jpg" alt="Gallery Image 9">
-</a>
+<div class="gallery-item"
+onclick="openPopup(
+'2year 1sem/converted_image.jpg',
+'Gallery Image 8',
+'Another memorable college picture.'
+)">
+<img src="2year 1sem/converted_image.jpg" alt="Gallery Image 8">
+</div>
 
-<a href="2year 1sem/converted_image.jpg" target="_blank">
-  <img src="2year 1sem/converted_image.jpg" alt="Gallery Image 10">
-</a>
+<div class="gallery-item"
+onclick="openPopup(
+'2year 1sem/20250809_113912_293.jpg',
+'Gallery Image 9',
+'Important event and achievement memory.'
+)">
+<img src="2year 1sem/20250809_113912_293.jpg" alt="Gallery Image 9">
+</div>
+
+<div class="gallery-item"
+onclick="openPopup(
+'2year 1sem/converted_image.jpg',
+'Gallery Image 10',
+'Another highlighted moment from my journey.'
+)">
+<img src="2year 1sem/converted_image.jpg" alt="Gallery Image 10">
+</div>
+
 </section>
+
+<!-- Popup -->
+<div class="popup" id="popup">
+
+<div class="popup-content">
+
+<span class="close" onclick="closePopup()">&times;</span>
+
+<img id="popup-img" src="">
+
+<h2 id="popup-title"></h2>
+
+<p id="popup-description"></p>
+
+</div>
+</div>
 
 <footer>
 <p>&copy; 2026 My College Diary | Created by an IT Student</p>
 </footer>
+
+<script>
+function openPopup(imageSrc, title, description){
+
+document.getElementById("popup").style.display = "flex";
+
+document.getElementById("popup-img").src = imageSrc;
+
+document.getElementById("popup-title").innerText = title;
+
+document.getElementById("popup-description").innerText = description;
+}
+
+function closePopup(){
+document.getElementById("popup").style.display = "none";
+}
+
+/* Close popup when clicking outside */
+window.onclick = function(event){
+
+let popup = document.getElementById("popup");
+
+if(event.target == popup){
+popup.style.display = "none";
+}
+}
+</script>
 
 </body>
 </html>
